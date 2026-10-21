@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-amber-50 text-gray-800">
+
+    <header class="bg-white shadow p-5">
+        <nav class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-amber-800">Café Baobab</h1>
+
+            <div class="flex gap-4">
+                <a href="index.html">Accueil</a>
+                <a href="menu.html">Menu</a>
+                <a href="a-propos.html">À propos</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-3xl mx-auto p-8">
+
+        <h2 class="text-4xl font-bold text-center mb-4">
+            Contactez-nous
+        </h2>
+
+        <p class="text-center text-gray-600 mb-8">
+            Réservez votre prochaine pause gourmande.
+        </p>
+
+        <form id="reservationForm"
+              class="bg-white p-6 rounded-xl shadow space-y-5">
+
+            <div>
+                <label for="nom" class="block font-semibold mb-2">
+                    Nom complet
+                </label>
+
+                <input type="text" id="nom" required
+                       class="w-full border rounded-lg p-3"
+                       placeholder="Votre nom">
+            </div>
+
+            <div>
+                <label for="email" class="block font-semibold mb-2">
+                    Adresse e-mail
+                </label>
+
+                <input type="email" id="email" required
+                       class="w-full border rounded-lg p-3"
+                       placeholder="vous@exemple.com">
+            </div>
+
+            <div>
+                <label for="date" class="block font-semibold mb-2">
+                    Date de réservation
+                </label>
+
+                <input type="date" id="date" required
+                       class="w-full border rounded-lg p-3">
+            </div>
+
+            <div>
+                <label for="personnes" class="block font-semibold mb-2">
+                    Nombre de personnes
+                </label>
+
+                <select id="personnes"
+                        class="w-full border rounded-lg p-3">
+                    <option>1 personne</option>
+                    <option selected>2 personnes</option>
+                    <option>3 personnes</option>
+                    <option>4 personnes</option>
+                    <option>5 personnes ou plus</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="message" class="block font-semibold mb-2">
+                    Votre message
+                </label>
+
+                <textarea id="message" rows="4"
+                          class="w-full border rounded-lg p-3"
+                          placeholder="Écrivez votre message..."></textarea>
+            </div>
+
+            <button type="submit"
+                    class="w-full bg-amber-800 text-white p-3 rounded-lg hover:bg-amber-900">
+                Envoyer
+            </button>
+
+            <p id="confirmation" class="hidden text-green-700"></p>
+
+        </form>
+
+    </main>
+
+    <footer class="bg-gray-900 text-white text-center p-6">
+        © 2026 Le Café Baobab
+    </footer>
+
+    <script>
+        const formulaire = document.getElementById("reservationForm");
+
+        formulaire.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const nom = document.getElementById("nom").value;
+            const confirmation = document.getElementById("confirmation");
+
+            confirmation.textContent =
+                "Merci " + nom + " ! Votre demande a été prise en compte.";
+
+            confirmation.classList.remove("hidden");
+        });
+    </script>
+
+</body>
+</html>
